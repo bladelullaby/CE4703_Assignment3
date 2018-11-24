@@ -85,7 +85,7 @@ int testCreation()
     
     free(expected_coefficients);
     free(coefficients);
-    free(pol1);
+    deletePolynomial(pol1);
     
     printf("\ncreatePolynomial: test 2\n");
     coefficients = malloc(sizeof(double) * 5);
@@ -113,7 +113,7 @@ int testCreation()
     
     free(expected_coefficients);
     free(coefficients);
-    free(pol1);
+    deletePolynomial(pol1);
     
     return ret;
 }
@@ -173,6 +173,13 @@ int testAddition()
     printf("=\n");
     printPolynomial(result);
     
+    free(expected_coefficients);
+    free(coefficients1);
+    free(coefficients2);
+    deletePolynomial(pol1);
+    deletePolynomial(pol2);
+    deletePolynomial(result);
+    
     
     printf("\naddPolynomials: test 2\n");
     coefficients1 = malloc(sizeof(double) * 5);
@@ -220,9 +227,9 @@ int testAddition()
     free(expected_coefficients);
     free(coefficients1);
     free(coefficients2);
-    free(pol1);
-    free(pol2);
-    free(result);
+    deletePolynomial(pol1);
+    deletePolynomial(pol2);
+    deletePolynomial(result);
     
     return ret;
 }
@@ -282,6 +289,13 @@ int testSubtraction()
     printf("=\n");
     printPolynomial(result);
     
+    free(expected_coefficients);
+    free(coefficients1);
+    free(coefficients2);
+    deletePolynomial(pol1);
+    deletePolynomial(pol2);
+    deletePolynomial(result);
+    
     
     printf("\nsubtractPolynomials: test 2\n");
     coefficients1 = malloc(sizeof(double) * 5);
@@ -329,9 +343,9 @@ int testSubtraction()
     free(expected_coefficients);
     free(coefficients1);
     free(coefficients2);
-    free(pol1);
-    free(pol2);
-    free(result);
+    deletePolynomial(pol1);
+    deletePolynomial(pol2);
+    deletePolynomial(result);
     
     return ret;
 }
@@ -384,9 +398,14 @@ int testMultiplication()
     printf("=\n");
     printPolynomial(result);
     
+    free(expected_coefficients);
+    free(coefficients1);
+    deletePolynomial(result);
+    deletePolynomial(pol1);
     
     
-        printf("\nmultiplyPolynomial: test 2\n");
+    
+    printf("\nmultiplyPolynomial: test 2\n");
     coefficients1 = malloc(sizeof(double) * 5);
     coefficients1[0] = 2.6;
     coefficients1[1] = 1;
@@ -425,7 +444,8 @@ int testMultiplication()
     
     free(expected_coefficients);
     free(coefficients1);
-    free(result);
+    deletePolynomial(result);
+    deletePolynomial(pol1);
     
     return ret;
 }
@@ -478,9 +498,14 @@ int testDivision()
     printf("=\n");
     printPolynomial(result);
     
+    free(expected_coefficients);
+    free(coefficients1);
+    deletePolynomial(result);
+    deletePolynomial(pol1);
     
     
-        printf("\ndividePolynomial: test 2\n");
+    
+    printf("\ndividePolynomial: test 2\n");
     coefficients1 = malloc(sizeof(double) * 5);
     coefficients1[0] = 2.6;
     coefficients1[1] = 1;
@@ -519,7 +544,8 @@ int testDivision()
     
     free(expected_coefficients);
     free(coefficients1);
-    free(result);
+    deletePolynomial(result);
+    deletePolynomial(pol1);
     
     return ret;
 }
@@ -568,10 +594,10 @@ int testNormalization()
     printPolynomial(result);
     
     
-    
     free(expected_coefficients);
     free(coefficients1);
-    free(result);
+    deletePolynomial(result);
+    deletePolynomial(pol1);
     
     return ret;
 }
@@ -613,6 +639,9 @@ int testGetOrder()
     printf("->\n");
     printf("order: %d\n",order);
     
+    free(coefficients1);
+    deletePolynomial(pol1);
+    
     
     printf("\nnormalizePolynomial: test 2\n");
     coefficients1 = malloc(sizeof(double) * 5);
@@ -643,6 +672,7 @@ int testGetOrder()
     
     
     free(coefficients1);
+    deletePolynomial(pol1);
     
     return ret;
 }
