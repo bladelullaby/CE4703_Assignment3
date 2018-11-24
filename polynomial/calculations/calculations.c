@@ -38,12 +38,53 @@ polynomial* subtractPolynomials(polynomial* pol1, polynomial* pol2)
     return createPolynomial(coefficients, length);
 }
 
+polynomial* multiplyPolynomial(polynomial* pol, double factor)
+{
+    int length = pol->length;
+    double* coefficients;
+    coefficients = malloc(sizeof(double) * length);
+    
+    for(int i = 0; i < length; i++)
+    {
+        coefficients[i] = pol->coefficients[i] * factor;
+    }
+    
+    return createPolynomial(coefficients, length);
+}
 
-polynomial* subtractPolynomials(polynomial* pol, polynomial* polSub);
-polynomial* multiplyPolynomial(polynomial* pol, double factor);
-polynomial* diviidePolynomial(polynomial* pol, double factor);
-polynomial* normalizePolynomial(polynomial* pol);
-int getPolynomialOrder(polynomial* pol);
+polynomial* dividePolynomial(polynomial* pol, double factor)
+{
+    int length = pol->length;
+    double* coefficients;
+    coefficients = malloc(sizeof(double) * length);
+    
+    for(int i = 0; i < length; i++)
+    {
+        coefficients[i] = pol->coefficients[i] / factor;
+    }
+    
+    return createPolynomial(coefficients, length);
+}
+
+polynomial* normalizePolynomial(polynomial* pol)
+{
+    int order = getPolynomialOrder(pol);
+    double highestOrderCoeff = pol->coefficients[order];
+    double factor = 1.0 / highestOrderCoeff;
+    
+    return multiplyPolynomial(pol,factor);
+    
+}
+
+int getPolynomialOrder(polynomial* pol)
+{
+    for(int i = pol->length - 1; i >= 0; i--)
+    {
+        if(pol->coefficients[i] != 0)
+            return i;
+    }
+    return 0;
+}
 
 int max(int a, int b)
 {

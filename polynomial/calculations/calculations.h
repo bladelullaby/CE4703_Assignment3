@@ -22,7 +22,7 @@
 polynomial* addPolynomials(polynomial* pol1, polynomial* pol2);
 polynomial* subtractPolynomials(polynomial* pol, polynomial* polSub);
 polynomial* multiplyPolynomial(polynomial* pol, double factor);
-polynomial* diviidePolynomial(polynomial* pol, double factor);
+polynomial* dividePolynomial(polynomial* pol, double factor);
 polynomial* normalizePolynomial(polynomial* pol);
 int getPolynomialOrder(polynomial* pol);
 

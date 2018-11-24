@@ -24,7 +24,7 @@ int testAddition();
 int testSubtraction();
 int testMultiplication();
 int testDivision();
-int testNormaization();
+int testNormalization();
 int testGetOrder();
 
 // close include guard
