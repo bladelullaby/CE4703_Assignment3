@@ -12,6 +12,7 @@
 
 //include headers
 #include <stdlib.h>
+#include "../creation/creation.h"
 #include "../polynomial.h"
 
 //declare structs

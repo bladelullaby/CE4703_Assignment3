@@ -2,7 +2,6 @@
 
 polynomial* createPolynomial(double* coefficients, int length)
 {
-    
     polynomial* pol;
     pol = malloc(sizeof(polynomial));
     double* coefficients2 = malloc(sizeof(double) * length);
